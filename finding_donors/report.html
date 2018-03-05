@@ -11813,7 +11813,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11931,7 +11931,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Total number of records</span>
@@ -12025,7 +12025,7 @@ Percentage of individuals making more than $50,000: 24.78%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Split the data into features and target label</span>
@@ -12367,7 +12367,7 @@ AQEAALQ9AGaz6XodUMKrAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Log-transform the skewed features</span>
@@ -12704,7 +12704,7 @@ SZIkqbX/Dw7mqWDp/pY1AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import sklearn.preprocessing.StandardScaler</span>
@@ -12917,11 +12917,11 @@ SZIkqbX/Dw7mqWDp/pY1AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: One-hot encode the &#39;features_log_minmax_transform&#39; data using pandas.get_dummies()</span>
-<span class="n">features_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">features_raw</span><span class="p">)</span>
+<span class="n">features_final</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">features_log_minmax_transform</span><span class="p">)</span>
 
 <span class="c1"># TODO: Encode the &#39;income_raw&#39; data to numerical values</span>
 <span class="n">income</span> <span class="o">=</span> <span class="n">income_raw</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s2">&quot;&gt;50K&quot;</span><span class="p">,</span><span class="s2">&quot;&lt;=50K&quot;</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
@@ -12970,7 +12970,7 @@ SZIkqbX/Dw7mqWDp/pY1AAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import train_test_split</span>
@@ -14155,10 +14155,10 @@ Surprisingly, RandomForest did much better than the Boosting alborithms in Train
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: 
-GradientBoost uses a base weak learner and tries to boost the performance of the weak learner iteratively. In each iteration it identifies the wrong observations by gradients (similar to gradient descent) and shifts the focus towards these. At the end a strong learner is formed through a simple majority vote of the weak learners. 
-This is generally one of the best models as it directly optimizes the cost function. But it is not robust against outliers and can overfit. Also it might be difficult to tune the model with all the hyper parameters.
-Referred: <a href="https://www.datasciencecentral.com/m/blogpost?id=6448529:BlogPost:428995">https://www.datasciencecentral.com/m/blogpost?id=6448529:BlogPost:428995</a></strong></p>
+<p>**Answer:</p>
+<p>Let us say there is a game and the players are required to guess the answer by asking questions. The players need to determine what is the optimal question to ask at every step of the game, in order to zero in on the right answer. This algorithm is called a decision tree. If several players ask few questions independently, and the guesses are combined by majority voting, it is called Bagging (eg. RandomForest). If the players guess one after another, and each player is provided information on the previous players guesses, so they can concentrate on the incorrect predictions, it is called Boosting in general.</p>
+<p>GradientBoost starts with a weak learner (an hypothesis, slightly better than random chance) and tries to boost the performance iteratively. In each iteration it identifies the wrong observations by calculating the Loss/Cost function (error between the known correct output and the actual output) and tries to minimize error by changing parameters/questions (Gradient Descent) until optimum parameters are identified. This is the training part and the goal is to identify the optimum parameters(questions here) to get to the answer fast.  Now this model (set of questions and order) can be used to predict answer for new scenario.
+**</p>
 
 </div>
 </div>
