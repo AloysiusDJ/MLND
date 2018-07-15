@@ -37,18 +37,218 @@ Recall(sensitivity) is a ratio of true positives(students classified as earning 
 
 For classification problems with distributions like in our case, precision and recall come in very handy. These two metrics can be combined to get the F1 score, which is weighted average of the precision and recall scores. This score can range from 0 to 1, with 1 being the best possible F1 score. The weight β can be increased if we want to have more emphasis on precision.
 
-    Fβ=(1+β2)⋅precision⋅recall/(β2⋅precision)+recall
+    [Fβ=(1+β2)⋅precision⋅recall/(β2⋅precision)+recall]
 
 
 ## II. Analysis
-_(approx. 2-4 pages)_
 
 ### Data Exploration
-In this section, you will be expected to analyze the data you are using for the problem. This data can either be in the form of a dataset (or datasets), input data (or input files), or even an environment. The type of data should be thoroughly described and, if possible, have basic statistics and information presented (such as discussion of input features or defining characteristics about the input or environment). Any abnormalities or interesting qualities about the data that may need to be addressed have been identified (such as features that need to be transformed or the possibility of outliers). Questions to ask yourself when writing this section:
-- _If a dataset is present for this problem, have you thoroughly discussed certain features about the dataset? Has a data sample been provided to the reader?_
-- _If a dataset is present for this problem, are statistics about the dataset calculated and reported? Have any relevant results from this calculation been discussed?_
-- _If a dataset is **not** present for this problem, has discussion been made about the input space or input data for your problem?_
-- _Are there any abnormalities or characteristics about the input space or dataset that need to be addressed? (categorical variables, missing values, outliers, etc.)_
+
+The dataset is provided bu the US Department of Education (https://collegescorecard.ed.gov/). It is provided as a CSV file. 
+The dataset consists of approximately 7593 data points, with each datapoint having 1825 features. 
+
+Data Sample:
+
+But for the purpose of this project 9 features have been selected with 1 target variable, as these seem to be more appropriate for the problem at hand.
+
+**Features**
+- `CONTROL`: integer : Collge type (1-Public/2&3-Private)
+- `ADM_RATE`: float : Admission Rate
+- `SATVRMID`: float: Average SAT score in English
+- `SATMTMID`: float : Average SAT score in Math
+- `COSTT4_A`: integer : Average cost to complete education
+- `C150_4`: float: The degree completion rate
+- `RET_FT4_POOLED`: float: Student retention rate
+- `NUM4_PUB`: integer : Total number of enrolled students (indicates size)
+- `INEXPFTE`: integer: Instructional expenditure per student
+
+
+**Target Variable**
+- `MN_EARN_WNE_INC2_P10`: float: Mean earnings of students 10 years after entry (<=50K, >50K)
+
+#### Data Sample:
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>UNITID</th>
+      <th>OPEID</th>
+      <th>OPEID6</th>
+      <th>INSTNM</th>
+      <th>CITY</th>
+      <th>STABBR</th>
+      <th>ZIP</th>
+      <th>ACCREDAGENCY</th>
+      <th>INSTURL</th>
+      <th>NPCURL</th>
+      <th>...</th>
+      <th>RET_FT4_POOLED_SUPP</th>
+      <th>RET_FTL4_POOLED_SUPP</th>
+      <th>RET_PT4_POOLED_SUPP</th>
+      <th>RET_PTL4_POOLED_SUPP</th>
+      <th>TRANS_4_POOLED</th>
+      <th>TRANS_L4_POOLED</th>
+      <th>DTRANS_4_POOLED</th>
+      <th>DTRANS_L4_POOLED</th>
+      <th>TRANS_4_POOLED_SUPP</th>
+      <th>TRANS_L4_POOLED_SUPP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100654</td>
+      <td>100200</td>
+      <td>1002</td>
+      <td>Alabama A &amp; M University</td>
+      <td>Normal</td>
+      <td>AL</td>
+      <td>35762</td>
+      <td>Southern Association of Colleges and Schools C...</td>
+      <td>www.aamu.edu/</td>
+      <td>www2.aamu.edu/scripts/netpricecalc/npcalc.htm</td>
+      <td>...</td>
+      <td>0.61638362831858</td>
+      <td>NaN</td>
+      <td>0.41664791666666</td>
+      <td>NaN</td>
+      <td>0.200384</td>
+      <td>NaN</td>
+      <td>2086.0</td>
+      <td>NaN</td>
+      <td>0.20038350910834</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>100663</td>
+      <td>105200</td>
+      <td>1052</td>
+      <td>University of Alabama at Birmingham</td>
+      <td>Birmingham</td>
+      <td>AL</td>
+      <td>35294-0110</td>
+      <td>Southern Association of Colleges and Schools C...</td>
+      <td>www.uab.edu</td>
+      <td>uab.studentaidcalculator.com/survey.aspx</td>
+      <td>...</td>
+      <td>0.80765744125326</td>
+      <td>NaN</td>
+      <td>0.58823529411764</td>
+      <td>NaN</td>
+      <td>0.241619</td>
+      <td>NaN</td>
+      <td>2740.0</td>
+      <td>NaN</td>
+      <td>0.24161927007299</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>100690</td>
+      <td>2503400</td>
+      <td>25034</td>
+      <td>Amridge University</td>
+      <td>Montgomery</td>
+      <td>AL</td>
+      <td>36117-3553</td>
+      <td>Southern Association of Colleges and Schools C...</td>
+      <td>www.amridgeuniversity.edu</td>
+      <td>www2.amridgeuniversity.edu:9091/</td>
+      <td>...</td>
+      <td>PrivacySuppressed</td>
+      <td>NaN</td>
+      <td>PrivacySuppressed</td>
+      <td>NaN</td>
+      <td>0.111111</td>
+      <td>NaN</td>
+      <td>18.0</td>
+      <td>NaN</td>
+      <td>PrivacySuppressed</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>100706</td>
+      <td>105500</td>
+      <td>1055</td>
+      <td>University of Alabama in Huntsville</td>
+      <td>Huntsville</td>
+      <td>AL</td>
+      <td>35899</td>
+      <td>Southern Association of Colleges and Schools C...</td>
+      <td>www.uah.edu</td>
+      <td>finaid.uah.edu/</td>
+      <td>...</td>
+      <td>0.78698579881656</td>
+      <td>NaN</td>
+      <td>0.50876842105263</td>
+      <td>NaN</td>
+      <td>0.332677</td>
+      <td>NaN</td>
+      <td>1539.0</td>
+      <td>NaN</td>
+      <td>0.33267738791423</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>100724</td>
+      <td>100500</td>
+      <td>1005</td>
+      <td>Alabama State University</td>
+      <td>Montgomery</td>
+      <td>AL</td>
+      <td>36104-0271</td>
+      <td>Southern Association of Colleges and Schools C...</td>
+      <td>www.alasu.edu</td>
+      <td>www.alasu.edu/cost-aid/forms/calculator/index....</td>
+      <td>...</td>
+      <td>0.58470804331013</td>
+      <td>NaN</td>
+      <td>0.43181818181818</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>2539.0</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows Ã— 1825 columns</p>
+</div>
+
+#### Data Statistics for selected features and target
+<<include>>
+
+#### Data Sample for selected features and target
+<<include>>
+    
+#### Final DataSet details:
+Some of the data records did not have information for Earnings from Universities as it was privacy protedted. 
+Hence had to pre-cleanup to remove those records.
+
+Total number of records: 448
+Individuals making more than $50,000: 150
+Individuals making at most $50,000: 298
+Percentage of individuals making more than $50,000: 33.48%
+
 
 ### Exploratory Visualization
 In this section, you will need to provide some form of visualization that summarizes or extracts a relevant characteristic or feature about the data. The visualization should adequately support the data being used. Discuss why this visualization was chosen and how it is relevant. Questions to ask yourself when writing this section:
