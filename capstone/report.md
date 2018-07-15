@@ -66,6 +66,7 @@ But for the purpose of this project 9 features have been selected with 1 target 
 **Target Variable**
 - `MN_EARN_WNE_INC2_P10`: float: Mean earnings of students 10 years after entry (<=50K, >50K)
 
+
 #### Data Sample:
 
 <table border="1" class="dataframe">
@@ -219,7 +220,8 @@ But for the purpose of this project 9 features have been selected with 1 target 
   </tbody>
 </table>
 
-#### Data Statistics for selected features and target
+#### Data Statistics for selected features and target:
+
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -344,7 +346,9 @@ But for the purpose of this project 9 features have been selected with 1 target 
   </tbody>
 </table>
 
-#### Data Sample for selected features and target
+
+
+#### Data Sample for selected features and target:
 
 <table border="1" class="dataframe">
   <thead>
@@ -431,14 +435,15 @@ But for the purpose of this project 9 features have been selected with 1 target 
   </tbody>
 </table>
     
+    
 #### Final DataSet details:
 Some of the data records did not have information for Earnings from Universities as it was privacy protedted. 
 Hence had to pre-cleanup to remove those records.
 
-Total number of records: 448
-Individuals making more than $50,000: 150
-Individuals making at most $50,000: 298
-Percentage of individuals making more than $50,000: 33.48%
+    Total number of records: 448
+    Individuals making more than $50,000: 150
+    Individuals making at most $50,000: 298
+    Percentage of individuals making more than $50,000: 33.48%
 
 
 ### Exploratory Visualization
