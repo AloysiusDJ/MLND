@@ -67,20 +67,7 @@ But for the purpose of this project 9 features have been selected with 1 target 
 - `MN_EARN_WNE_INC2_P10`: float: Mean earnings of students 10 years after entry (<=50K, >50K)
 
 #### Data Sample:
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -231,14 +218,218 @@ But for the purpose of this project 9 features have been selected with 1 target 
     </tr>
   </tbody>
 </table>
-<p>5 rows Ã— 1825 columns</p>
-</div>
 
 #### Data Statistics for selected features and target
-<<include>>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Earning</th>
+      <th>NoStudents</th>
+      <th>UnivSpending</th>
+      <th>UnivType</th>
+      <th>SATMath</th>
+      <th>SATRead</th>
+      <th>StudentCost</th>
+      <th>AdmissionRate</th>
+      <th>Completionrate</th>
+      <th>RetentionRate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>448.000000</td>
+      <td>448.000000</td>
+      <td>448.000000</td>
+      <td>448.0</td>
+      <td>448.000000</td>
+      <td>448.000000</td>
+      <td>448.000000</td>
+      <td>448.000000</td>
+      <td>448.000000</td>
+      <td>448.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>47238.392857</td>
+      <td>1038.589286</td>
+      <td>9676.296875</td>
+      <td>1.0</td>
+      <td>512.169643</td>
+      <td>524.897321</td>
+      <td>21166.167411</td>
+      <td>0.682814</td>
+      <td>0.511222</td>
+      <td>0.768067</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>8848.756487</td>
+      <td>805.681157</td>
+      <td>4378.046492</td>
+      <td>0.0</td>
+      <td>55.772049</td>
+      <td>62.385990</td>
+      <td>4059.443911</td>
+      <td>0.168965</td>
+      <td>0.170033</td>
+      <td>0.096141</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>29800.000000</td>
+      <td>54.000000</td>
+      <td>3121.000000</td>
+      <td>1.0</td>
+      <td>370.000000</td>
+      <td>380.000000</td>
+      <td>12151.000000</td>
+      <td>0.168836</td>
+      <td>0.108900</td>
+      <td>0.488141</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>41100.000000</td>
+      <td>387.500000</td>
+      <td>7039.750000</td>
+      <td>1.0</td>
+      <td>475.000000</td>
+      <td>485.000000</td>
+      <td>18452.500000</td>
+      <td>0.582301</td>
+      <td>0.397175</td>
+      <td>0.703396</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>46200.000000</td>
+      <td>828.500000</td>
+      <td>8591.000000</td>
+      <td>1.0</td>
+      <td>505.000000</td>
+      <td>515.000000</td>
+      <td>20949.500000</td>
+      <td>0.690453</td>
+      <td>0.493250</td>
+      <td>0.766676</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>51300.000000</td>
+      <td>1476.750000</td>
+      <td>10817.500000</td>
+      <td>1.0</td>
+      <td>545.250000</td>
+      <td>555.000000</td>
+      <td>23340.000000</td>
+      <td>0.805161</td>
+      <td>0.632250</td>
+      <td>0.840963</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>95900.000000</td>
+      <td>3975.000000</td>
+      <td>43996.000000</td>
+      <td>1.0</td>
+      <td>680.000000</td>
+      <td>745.000000</td>
+      <td>34496.000000</td>
+      <td>1.000000</td>
+      <td>0.933000</td>
+      <td>0.972121</td>
+    </tr>
+  </tbody>
+</table>
 
 #### Data Sample for selected features and target
-<<include>>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Earning</th>
+      <th>NoStudents</th>
+      <th>UnivSpending</th>
+      <th>UnivType</th>
+      <th>SATMath</th>
+      <th>SATRead</th>
+      <th>StudentCost</th>
+      <th>AdmissionRate</th>
+      <th>Completionrate</th>
+      <th>RetentionRate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>35500.0</td>
+      <td>743.0</td>
+      <td>7941.0</td>
+      <td>1</td>
+      <td>427.0</td>
+      <td>420.0</td>
+      <td>20809.0</td>
+      <td>0.653841</td>
+      <td>0.3081</td>
+      <td>0.616384</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>45900.0</td>
+      <td>955.0</td>
+      <td>17548.0</td>
+      <td>1</td>
+      <td>575.0</td>
+      <td>594.0</td>
+      <td>22232.0</td>
+      <td>0.604275</td>
+      <td>0.5462</td>
+      <td>0.807657</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53400.0</td>
+      <td>331.0</td>
+      <td>10619.0</td>
+      <td>1</td>
+      <td>585.0</td>
+      <td>615.0</td>
+      <td>20999.0</td>
+      <td>0.811971</td>
+      <td>0.4935</td>
+      <td>0.786986</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>30700.0</td>
+      <td>570.0</td>
+      <td>7742.0</td>
+      <td>1</td>
+      <td>410.0</td>
+      <td>410.0</td>
+      <td>18100.0</td>
+      <td>0.463858</td>
+      <td>0.2696</td>
+      <td>0.584708</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>50100.0</td>
+      <td>1282.0</td>
+      <td>10312.0</td>
+      <td>1</td>
+      <td>545.0</td>
+      <td>550.0</td>
+      <td>27205.0</td>
+      <td>0.535867</td>
+      <td>0.6709</td>
+      <td>0.865822</td>
+    </tr>
+  </tbody>
+</table>
     
 #### Final DataSet details:
 Some of the data records did not have information for Earnings from Universities as it was privacy protedted. 
