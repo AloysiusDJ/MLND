@@ -487,15 +487,13 @@ GradientBoost can be thought of a specific type of AdaptiveBoosting. The main di
 I am thinking of starting with the default parameters for these algorithms, and then fine tune them later to see if they make a difference in accuracy scores.
 
 ### Benchmark
-In this section, you will need to provide a clearly defined benchmark result or threshold for comparing across performances obtained by your solution. The reasoning behind the benchmark (in the case where it is not an established result) should be discussed. Questions to ask yourself when writing this section:
-- _Has some result or value been provided that acts as a benchmark for measuring performance?_
-- _Is it clear how this result or value was obtained (whether by data or by hypothesis)?_
 
 Since there are numerous factors that could be used and hence not many standardised studies are available to provide an historic benchmark, I am using Naive predictor methodology where we assume everyone earns above $50,000, as a benchmark model and see
 how the above Ensemble models perform.
 
 The scores I got based on his method: 
    Naive Predictor: [Accuracy score: 0.3348, F-score: 0.3862]
+   
    
    
 ## III. Methodology
