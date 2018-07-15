@@ -69,6 +69,7 @@ But for the purpose of this project 9 features have been selected with 1 target 
 
 #### Data Sample:
 
+<div>
     <table border="1" class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -219,9 +220,13 @@ But for the purpose of this project 9 features have been selected with 1 target 
         </tr>
       </tbody>
     </table>
+</div>
+
+
 
 #### Data Statistics for selected features and target:
 
+<div>
     <table border="1" class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -345,11 +350,13 @@ But for the purpose of this project 9 features have been selected with 1 target 
         </tr>
       </tbody>
     </table>
+</div>
 
 
 
 #### Data Sample for selected features and target:
 
+<div>
     <table border="1" class="dataframe">
       <thead>
         <tr style="text-align: right;">
@@ -434,7 +441,7 @@ But for the purpose of this project 9 features have been selected with 1 target 
         </tr>
       </tbody>
     </table>
-    
+</div>    
     
 #### Final DataSet details:
 Some of the data records did not have information for Earnings from Universities as it was privacy protedted. 
