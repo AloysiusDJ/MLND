@@ -1,21 +1,23 @@
 # Machine Learning Engineer Nanodegree
-## Capstone Project
-Joe Udacity  
-December 31st, 2050
+## Predict College Earning Potential
+Aloysius Joseph  
+July 15, 2018
 
 ## I. Definition
 _(approx. 1-2 pages)_
 
 ### Project Overview
-In this section, look to provide a high-level overview of the project in layman’s terms. Questions to ask yourself when writing this section:
-- _Has an overview of the project been provided, such as the problem domain, project origin, and related datasets or input data?_
-- _Has enough background information been given so that an uninformed reader would understand the problem domain and following problem statement?_
+
+I propose to create a model for prediction for college selection based on earning potential. Students and parents have a tough time determining which colleges to apply. There are a lot of factors to consider and lots of conflicting information. Also there is lots of data available as well as lots of variables involved. But in general apart from SAT score and GPA that are used mainly for the admission process, several factors like University admission rate, public/private type of university etc., need to be considered.
+Dataset: https://collegescorecard.ed.gov/data/Most-Recent-Cohorts-All-Data-Elements.csv
+Documentation: https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf
+Data Dictionary: https://collegescorecard.ed.gov/data/CollegeScorecardDataDictionary.xlsx
 
 ### Problem Statement
-In this section, you will want to clearly define the problem that you are trying to solve, including the strategy (outline of tasks) you will use to achieve the desired solution. You should also thoroughly discuss what the intended solution will be for this problem. Questions to ask yourself when writing this section:
-- _Is the problem statement clearly defined? Will the reader understand what you are expecting to solve?_
-- _Have you thoroughly discussed how you will attempt to solve the problem?_
-- _Is an anticipated solution clearly defined? Will the reader understand what results you are looking for?_
+
+Predict some of the major factors to be considered by a student when applying to Universities and help in the process of selecting Universities to apply.
+This is a classification problem. If the student is hoping to earn at least $50,000 10 years after graduation, which universities might he plan on applying (without taking the degree major into consideration). Which of these factors available about Universities will matter most: SAT scores, size (number of students), spending per student by university, type (public/private), cost for students, rate of admission, rate of completion and rate of retention. I plan to use Ensemble methods like Ada Bost, Random Forest and Gradient Boost and select the one providing better accuracy.
+
 
 ### Metrics
 In this section, you will need to clearly define the metrics or calculations you will use to measure performance of a model or result in your project. These calculations and metrics should be justified based on the characteristics of the problem and problem domain. Questions to ask yourself when writing this section:
