@@ -35,7 +35,7 @@ This will open the iPython Notebook software and project file in the browser.
 
 ### Data
 
-The dataset consists of approximately XXX data points, with each datapoint having 2060 features. This dataset is provided by the US Department of Education (https://collegescorecard.ed.gov/). But the purpose of this project 9 features have been selected with 1 target variable.
+The dataset consists of approximately 7593 data points, with each datapoint having 1825 features. This dataset is provided by the US Department of Education (https://collegescorecard.ed.gov/). But for the purpose of this project 9 features have been selected with 1 target variable.
 
 **Features**
 - `CONTROL`: Collge type (Public/Private)
