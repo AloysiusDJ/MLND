@@ -7,7 +7,7 @@ July 15, 2018
 
 ### Project Overview
 
-    I propose to create a model for prediction for college selection based on earning potential. Students and parents have a tough time determining which colleges to apply. There are a lot of factors to consider and lots of conflicting information. Also there is lots of data available as well as lots of variables involved. But in general apart from SAT score and GPA that are used mainly for the admission process, several factors like University admission rate, public/private type of university etc., need to be considered.
+   I propose to create a model for prediction for college selection based on earning potential. Students and parents have a tough time determining which colleges to apply. There are a lot of factors to consider and lots of conflicting information. Also there is lots of data available as well as lots of variables involved. But in general apart from SAT score and GPA that are used mainly for the admission process, several factors like University admission rate, public/private type of university etc., need to be considered.
 
 Dataset: https://collegescorecard.ed.gov/data/Most-Recent-Cohorts-All-Data-Elements.csv
 
@@ -18,24 +18,24 @@ Data Dictionary: https://collegescorecard.ed.gov/data/CollegeScorecardDataDictio
 
 ### Problem Statement
 
-    Predict some of the major factors to be considered by a student when applying to Universities and help in the process of selecting Universities to apply.
+   Predict some of the major factors to be considered by a student when applying to Universities and help in the process of selecting Universities to apply.
 
-    This is a classification problem. If the student is hoping to earn at least $50,000 10 years after graduation, which universities might he plan on applying (without taking the degree major into consideration). Which of these factors available about Universities will matter most: SAT scores, size (number of students), spending per student by university, type (public/private), cost for students, rate of admission, rate of completion and rate of retention. I plan to use Ensemble methods like Ada Bost, Random Forest and Gradient Boost and select the one providing better accuracy.
+   This is a classification problem. If the student is hoping to earn at least $50,000 10 years after graduation, which universities might he plan on applying (without taking the degree major into consideration). Which of these factors available about Universities will matter most: SAT scores, size (number of students), spending per student by university, type (public/private), cost for students, rate of admission, rate of completion and rate of retention. I plan to use Ensemble methods like Ada Bost, Random Forest and Gradient Boost and select the one providing better accuracy.
 
 
 ### Metrics
 
-    Accuracy measures how often the classifier makes the correct prediction. It’s the ratio of the number of correct predictions to the total number of predictions.
+   Accuracy measures how often the classifier makes the correct prediction. It’s the ratio of the number of correct predictions to the total number of predictions.
 
-    Precision is a ratio of true positives (students classified as earning >=50k, and who are actually earning that much) to all positives (all students classified as earning >=50k, irrespective of whether that was the correct classification).
+   Precision is a ratio of true positives (students classified as earning >=50k, and who are actually earning that much) to all positives (all students classified as earning >=50k, irrespective of whether that was the correct classification).
 
     [True Positives/(True Positives + False Positives)]
 
-    Recall(sensitivity) is a ratio of true positives(students classified as earning >=50k, and who are actually earning that much) to all the students who were actually earning >=50k.
+   Recall(sensitivity) is a ratio of true positives(students classified as earning >=50k, and who are actually earning that much) to all the students who were actually earning >=50k.
 
     [True Positives/(True Positives + False Negatives)]
 
-    For classification problems with distributions like in our case, precision and recall come in very handy. These two metrics can be combined to get the F1 score, which is weighted average of the precision and recall scores. This score can range from 0 to 1, with 1 being the best possible F1 score. The weight β can be increased if we want to have more emphasis on precision.
+   For classification problems with distributions like in our case, precision and recall come in very handy. These two metrics can be combined to get the F1 score, which is weighted average of the precision and recall scores. This score can range from 0 to 1, with 1 being the best possible F1 score. The weight β can be increased if we want to have more emphasis on precision.
 
     [Fβ=(1+β2)⋅precision⋅recall/(β2⋅precision)+recall]
 
@@ -44,10 +44,10 @@ Data Dictionary: https://collegescorecard.ed.gov/data/CollegeScorecardDataDictio
 
 ### Data Exploration
 
-    The dataset is provided bu the US Department of Education (https://collegescorecard.ed.gov/). It is provided as a CSV file. 
+   The dataset is provided bu the US Department of Education (https://collegescorecard.ed.gov/). It is provided as a CSV file. 
 The dataset consists of approximately 7593 data points, with each datapoint having 1825 features. 
 
-    But for the purpose of this project 9 features have been selected with 1 target variable, as these seem to be more appropriate for the problem at hand.
+   But for the purpose of this project 9 features have been selected with 1 target variable, as these seem to be more appropriate for the problem at hand.
 
 **Features**
 - `CONTROL`: integer : Collge type (1-Public/2&3-Private)
@@ -442,7 +442,7 @@ The dataset consists of approximately 7593 data points, with each datapoint havi
 </div>    
     
 #### Final DataSet details:
-    Some of the data records did not have information for Earnings from Universities as it was privacy protedted. 
+   Some of the data records did not have information for Earnings from Universities as it was privacy protedted. 
 Hence had to pre-cleanup to remove those records.
 
     Total number of records: 448
@@ -456,16 +456,16 @@ Hence had to pre-cleanup to remove those records.
 The various distributions of the Features are displayed below:
 
 #### Observations:
-    The distributions for number of students does not have a normal distribution and skewed to left, as there are large universities and small private colleges. The disctribution for niversity spending on students is highly skewed to the left, as few famous universities have huge endowments while most others do not have that type of funding to spend on students.
+   The distributions for number of students does not have a normal distribution and skewed to left, as there are large universities and small private colleges. The disctribution for niversity spending on students is highly skewed to the left, as few famous universities have huge endowments while most others do not have that type of funding to spend on students.
 Hence we may have to do log-transformation for these features so they do not negatively affect the performance of a learning algorithm.
 <img src="images/output_11_1.png" />
 
-    The distribution of other featues namely student cost, admission rate, completion rate, retention rate and SAT scores generally have somewhat normal distributions which might be good enough for this prediction.
+   The distribution of other featues namely student cost, admission rate, completion rate, retention rate and SAT scores generally have somewhat normal distributions which might be good enough for this prediction.
 <img src="images/output_11_2.png" />
 <img src="images/output_11_3.png" />
 <img src="images/output_11_4.png" />
 
-    The distribution for the target Earning variable is shown below.
+   The distribution for the target Earning variable is shown below. It is skewed to the left as more students earn less than 50K as we saw in the statistics section above.
 <img src="images/output_11_0.png" />
 
 
