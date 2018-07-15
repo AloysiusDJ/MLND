@@ -1,6 +1,6 @@
-# Machine Learning Engineer Nanodegree
-# Supervised Learning
-## Project: Finding Donors for CharityML
+# Capstone Project
+# Predict College Earning Potential
+## Aloysius Joseph
 
 ### Install
 
