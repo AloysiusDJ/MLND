@@ -491,7 +491,8 @@ I am thinking of starting with the default parameters for these algorithms, and 
 Since there are numerous factors that could be used and hence not many standardised studies are available to provide an historic benchmark, I am using Naive predictor methodology where we assume everyone earns above $50,000, as a benchmark model and see
 how the above Ensemble models perform.
 
-The scores I got based on his method: 
+The scores I got based on his method:
+   
    Naive Predictor: [Accuracy score: 0.3348, F-score: 0.3862]
    
    
