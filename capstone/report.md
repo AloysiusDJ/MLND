@@ -454,10 +454,22 @@ Hence had to pre-cleanup to remove those records.
 
 
 ### Exploratory Visualization
-In this section, you will need to provide some form of visualization that summarizes or extracts a relevant characteristic or feature about the data. The visualization should adequately support the data being used. Discuss why this visualization was chosen and how it is relevant. Questions to ask yourself when writing this section:
-- _Have you visualized a relevant characteristic or feature about the dataset or input data?_
-- _Is the visualization thoroughly analyzed and discussed?_
-- _If a plot is provided, are the axes, title, and datum clearly defined?_
+
+The various distributions of the Features are displayed below:
+
+Observations:
+The distributions for number of students does not have a normal distribution and skewed to left, as there are large universities and small private colleges. The disctribution for niversity spending on students is highly skewed to the left, as few famous universities have huge endowments while most others do not have that type of funding to spend on students.
+Hence we may have to do log-transformation for these features so they do not negatively affect the performance of a learning algorithm.
+<img src="images/output_11_1.png" />
+
+The distribution of other featues namely student cost, admission rate, completion rate, retention rate and SAT scores generally have somewhat normal distributions which might be good enough for this prediction.
+<img src="images/output_11_2.png" />
+<img src="images/output_11_3.png" />
+<img src="images/output_11_4.png" />
+
+The distribution for the target Earning variable is shown below.
+<img src="images/output_11_0.png" />
+
 
 ### Algorithms and Techniques
 In this section, you will need to discuss the algorithms and techniques you intend to use for solving the problem. You should justify the use of each one based on the characteristics of the problem and the problem domain. Questions to ask yourself when writing this section:
