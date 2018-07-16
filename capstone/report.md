@@ -5,7 +5,7 @@ July 15, 2018
 
 ## I. Definition
 
-### Project Overview
+### I.1 Project Overview
 
    I propose to create a model for prediction for college selection based on earning potential. Students and parents have a tough time determining which colleges to apply. There are a lot of factors to consider and lots of conflicting information. Also there is lots of data available as well as lots of variables involved. But in general apart from SAT score and GPA that are used mainly for the admission process, several factors like University admission rate, public/private type of university etc., need to be considered.
 
@@ -16,14 +16,14 @@ Documentation: https://collegescorecard.ed.gov/assets/FullDataDocumentation.pdf
 Data Dictionary: https://collegescorecard.ed.gov/data/CollegeScorecardDataDictionary.xlsx
 
 
-### Problem Statement
+### I.2 Problem Statement
 
    Predict some of the major factors to be considered by a student when applying to Universities and help in the process of selecting Universities to apply.
 
    This is a classification problem. If the student is hoping to earn at least $50,000 10 years after graduation, which universities might he plan on applying (without taking the degree major into consideration). Which of these factors available about Universities will matter most: SAT scores, size (number of students), spending per student by university, type (public/private), cost for students, rate of admission, rate of completion and rate of retention. I plan to use Ensemble methods like Ada Bost, Random Forest and Gradient Boost and select the one providing better accuracy.
 
 
-### Metrics
+### I.3 Metrics
 
    Accuracy measures how often the classifier makes the correct prediction. It’s the ratio of the number of correct predictions to the total number of predictions.
 
@@ -42,7 +42,7 @@ Data Dictionary: https://collegescorecard.ed.gov/data/CollegeScorecardDataDictio
 
 ## II. Analysis
 
-### Data Exploration
+### II.1 Data Exploration
 
    The dataset is provided bu the US Department of Education (https://collegescorecard.ed.gov/). It is provided as a CSV file. 
 The dataset consists of approximately 7593 data points, with each datapoint having 1825 features. 
@@ -65,7 +65,7 @@ The dataset consists of approximately 7593 data points, with each datapoint havi
 - `MN_EARN_WNE_INC2_P10`: float: Mean earnings of students 10 years after entry (<=50K, >50K)
 
 
-#### Data Sample:
+#### II.1.1 Data Sample:
 
 <div>
     <table border="1" class="dataframe">
@@ -222,7 +222,7 @@ The dataset consists of approximately 7593 data points, with each datapoint havi
 
 
 
-#### Data Statistics for selected features and target:
+#### II.1.2 Data Statistics for selected features and target:
 
 <div>
     <table border="1" class="dataframe">
@@ -352,7 +352,7 @@ The dataset consists of approximately 7593 data points, with each datapoint havi
 
 
 
-#### Data Sample for selected features and target:
+#### II.1.3 Data Sample for selected features and target:
 
 <div>
     <table border="1" class="dataframe">
@@ -441,7 +441,7 @@ The dataset consists of approximately 7593 data points, with each datapoint havi
     </table>
 </div>    
     
-#### Final DataSet details:
+#### II.1.4 Final DataSet details:
    Some of the data records did not have information for Earnings from Universities as it was privacy protedted. 
 Hence had to pre-cleanup to remove those records.
 
@@ -451,7 +451,7 @@ Hence had to pre-cleanup to remove those records.
     Percentage of individuals making more than $50,000: 33.48%
 
 
-### Exploratory Visualization
+### II.2 Exploratory Visualization
 
 The various distributions of the Features are displayed below:
 
@@ -472,7 +472,7 @@ Hence we may have to do log-transformation for these features so they do not neg
 <img src="images/output_11_0.png" />
 
 
-### Algorithms and Techniques
+### II.3 Algorithms and Techniques
 
 This is a Classification problem as we are trying to predict if sudents will earn at least 50K after 10 years of graduation based on a selected feature set. A decision Tree based model could be used as a starting point and Ensemble methods below can be attempted.
 
@@ -486,7 +486,7 @@ GradientBoost can be thought of a specific type of AdaptiveBoosting. The main di
 
 I am thinking of starting with the default parameters for these algorithms, and then fine tune them later to see if they make a difference in accuracy scores.
 
-### Benchmark
+### II.4 Benchmark
 
 Since there are numerous factors that could be used and hence not many standardised studies are available to provide an historic benchmark, I am using Naive predictor methodology where we assume everyone earns above $50,000, as a benchmark model and see
 how the above Ensemble models perform.
@@ -499,7 +499,7 @@ The scores I got based on his method:
    
 ## III. Methodology
 
-### Data Preprocessing
+### III.1 Data Preprocessing
 
 The dataset had 1825 features. Fortunately there was extensive dowcumentation, which I had to read through to shortlist the features needed. 
 
@@ -515,15 +515,15 @@ Also applied normalization for the features, since they were numerical, so that 
 
 Finally since I wanted to frame this as a classification problem, encoded the target variable Earnings to 1 if >=50000 and 0 if <50000.
 
-### Implementation
+### III.2 Implementation
 
-#### Shuffle and Split Data
+#### III.2.1 Shuffle and Split Data
 First step is to split the data (both features and their labels) into training and test sets. 80% of the data will be used for training and 20% for testing.
 
-#### Generate a Naive predictor
+#### III.2.2 Generate a Naive predictor
 The purpose of generating a naive predictor is simply to show what a base model without any intelligence would look like. This is becaue I could not find any free historically similar research. In Naive predictor methodology I assume everyone earns above $50,000 and generate accuracy scores.
 
-#### Select Algorithms to test
+#### III.2.3 Select Algorithms to test
 Using Ensemble Methods sequentail boosting (AdaBoost, Gradient Boost) and parallel bagging(RandomForest) to compare.
 To properly evaluate the performance of each model, created a training and predicting pipeline that allows to quickly and effectively train models using various sizes of training data and perform predictions on the testing data. 
 
@@ -533,7 +533,7 @@ To properly evaluate the performance of each model, created a training and predi
 - Calculate the accuracy score for both the training subset and testing set.
 - Calculate the F-score for both the training subset and testing set.
 
-#### Initial model evaluation
+#### III.2.4 Initial model evaluation
 Imported the three supervised learning models as discussed. Used the default settings for each model. Calculated the number of records equal to 1%, 10%, and 100% of the training data.
 
 <img src="images/output_30_1.png" />
@@ -543,7 +543,7 @@ Best Model : GradientBoost Classifier has the highest score with less time.
 GradientBoost has higher F-score and Accuracy than AdaBoostin with Testing set and Trainming set. It also took more time than AdaBoost.
 Surprisingly, RandomForest did as good as Boosting alborithms in Training and took less time too. RandomForest did as good as GradientBost with slightly les accuracy scores and slightly more time during testing.
 
-### Refinement
+### III.3 Refinement
 
 I selected GradientBoost and fine tuned the following parameters:
 
@@ -576,7 +576,7 @@ Finally wanted to see how the model will perform if only the top five important 
  
 ## IV. Results
 
-### Model Evaluation and Validation
+### IV.1 Model Evaluation and Validation
 
 The Final optimized model scores are Accuracy 0.8556 and F-score 0.7634
 The Optimized model with feature selection is better than the Optimized model which is better than the unoptimized model.
@@ -590,7 +590,7 @@ But it has much better scores than benchmark (Accuracy-0.3348, F-score: 0.3862)
 | F-score        |    0.7194         |     0.7407      |       0.7634             |
 
 
-### Justification
+### IV.2 Justification
 
 Benchmark scores: Accuracy-0.3348, F-score: 0.3862
 Final model scores: Accuracy-0.8556, F-score: 0.7634
@@ -600,7 +600,7 @@ Compared to the Benchmark the selected tuned model has gained 155.5% in accuracy
 
 ## V. Conclusion
 
-### Free-Form Visualization
+### V.1 Free-Form Visualization
 
 According to the best fitter model the importance of the features are as below:
 
@@ -610,7 +610,7 @@ The order of importance of the features make sense. But couple of surprises:
 - College retention rate is ranked the highest as far as getting atleast 50K earning in future. 
 - The type of University (public/private) did not seem to matter, so maybe students need not worry about high cost private colleges.
 
-### Reflection
+### V.2 Reflection
 
 The project can be summarized as following steps:
 1. Data Exploration: Cursory investigation of the data to explore the dataset and the featureset and to find degree of correlations between variables.
@@ -622,7 +622,7 @@ The project can be summarized as following steps:
 
 Conceptually the data available for doing this type of investigation is not sufficient as Universities do not want to share this information. Also maybe there are more important factors like college major, but that is out of scope of this investigation. I think within the limitations and constrains of data, this study can help students and parents to think outside the box, to look at other factors when selecting colleges.
 
-### Improvement
+### V.3 Improvement
 
 To investigate further more algorithms can be tried out like XGBoost. 
 
