@@ -48,6 +48,9 @@ The dataset consists of approximately 7593 data points, with each datapoint havi
 - `NUM4_PUB`: Total number of enrolled students (indicates size)
 - `INEXPFTE`: Instructional expenditure per student
 
+### Report
+- [Report](report.md)
+
 
 **Target Variable**
 - `MN_EARN_WNE_INC2_P10`: Mean earnings of students 10 years after entry (<=50K, >50K)
