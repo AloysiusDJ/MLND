@@ -498,7 +498,6 @@ The scores I got based on his method:
    
    
 ## III. Methodology
-_(approx. 3-5 pages)_
 
 ### Data Preprocessing
 
@@ -547,9 +546,13 @@ Surprisingly, RandomForest did as good as Boosting alborithms in Training and to
 ### Refinement
 
 I selected GradientBoost and fine tuned the following parameters:
+
               learning_rate': [0.1, 0.05, 0.01]
+              
               n_estimators' :[25,50,70]
+              
               max_depth' : [1,3,9]
+              
               
 learning_rate : shrinks the contribution of each tree by learning_rate. There is a trade-off between learning_rate and n_estimators.
 
@@ -569,6 +572,7 @@ Final Optimized Model with Feature Selection:
 Finally wanted to see how the model will perform if only the top five important features were usd to train. 
    Accuracy score on testing data: 0.8556
    F-score on testing data: 0.7634
+ 
  
 ## IV. Results
 
@@ -600,7 +604,7 @@ Compared to the Benchmark the selected tuned model has gained 155.5% in accuracy
 
 According to the best fitter model the importance of the features are as below:
 
-<img src="images/output_35_0.png" />
+<img src="images/output_45_0.png" />
 
 The order of importance of the features make sense. But couple of surprises: 
 - College retention rate is ranked the highest as far as getting atleast 50K earning in future. 
@@ -620,6 +624,11 @@ Conceptually the data available for doing this type of investigation is not suff
 
 ### Improvement
 
-To investigate further more algorithms can be tried out like XGBoost. Could have tried fine tuning other parameters too with current model.
+To investigate further more algorithms can be tried out like XGBoost. 
+
+Can also try fine tuning other parameters with current model.
+
 Also I had dropped records with features that did not have values. Possibly can try out with filling with average value for the feature, to have a larger dataset. 
+
+Given the problem space with scarcity of data but large interest, there is a huge potential for a business model.
 
