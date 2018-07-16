@@ -19,7 +19,7 @@ from sklearn.metrics import f1_score, accuracy_score
 
 def distribution(features, data, transformed = False):
     """
-    Visualization code for displaying skewed distributions of features
+    Visualization code for displaying skewed distributions of features/variable
     """
     
     # Create figure
@@ -29,7 +29,7 @@ def distribution(features, data, transformed = False):
     for i, feature in enumerate(features):
         ax = fig.add_subplot(1, 2, i+1)
         ax.hist(data[feature], bins = 25, color = '#00A0A0')
-        ax.set_title("'%s' Feature Distribution"%(feature), fontsize = 14)
+        ax.set_title("'%s' Distribution"%(feature), fontsize = 14)
         ax.set_xlabel("Value")
         ax.set_ylabel("Number of Records")
         ax.set_ylim((0, 200))
@@ -38,11 +38,11 @@ def distribution(features, data, transformed = False):
 
     # Plot aesthetics
     if transformed:
-        fig.suptitle("Log-transformed Distributions of Continuous Census Data Features", \
+        fig.suptitle("Log-transformed Distributions of Data", \
             fontsize = 16, y = 1.03)
-    else:
-        fig.suptitle("Skewed Distributions of Continuous Census Data Features", \
-            fontsize = 16, y = 1.03)
+    """else:
+        fig.suptitle("Distributions of Data", \
+            fontsize = 16, y = 1.03)"""
 
     fig.tight_layout()
     fig.show()
