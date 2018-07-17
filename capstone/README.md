@@ -52,6 +52,6 @@ The dataset consists of approximately 7593 data points, with each datapoint havi
 - `MN_EARN_WNE_INC2_P10`: Mean earnings of students 10 years after entry (<=50K, >50K)
 
 ### Report
-- [Report.md](report.md) or [Report.pdf](report.pdf)
+- [Report.pdf](report.pdf)
 
 
